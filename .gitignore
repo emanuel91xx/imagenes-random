@@ -1,0 +1,70 @@
+# ===========================
+# Django + Python
+# ===========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+
+# ===========================
+# Entorno virtual (venv)
+# ===========================
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ===========================
+# Archivos de configuración locales
+# ===========================
+.env
+*.env
+*.ini
+*.local
+*.cfg
+
+# ===========================
+# Archivos de IDE/Editor
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===========================
+# Archivos de dependencias y compilación
+# ===========================
+*.egg-info/
+dist/
+build/
+*.egg
+*.manifest
+*.spec
+
+# ===========================
+# Archivos estáticos y multimedia (se generan o suben)
+# ===========================
+static/
+media/
+
+# ===========================
+# Archivos de sistema operativo
+# ===========================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ===========================
+# Docker y logs
+# ===========================
+*.pid
+*.seed
+*.bak
+*.backup
+docker-compose.override.yml
