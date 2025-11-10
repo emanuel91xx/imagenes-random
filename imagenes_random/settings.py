@@ -1,6 +1,5 @@
-from pathlib import Path
 import os
-from dotenv import load_dotenv  # si no lo tenés, podés omitirlo en dev
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 # load_dotenv(BASE_DIR / ".env")  # opcional
@@ -10,11 +9,17 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
-    "django.contrib.admin","django.contrib.auth","django.contrib.contenttypes",
-    "django.contrib.sessions","django.contrib.messages","django.contrib.staticfiles",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
     # allauth
     "django.contrib.sites",
-    "allauth","allauth.account","allauth.socialaccount",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
     # api
     "rest_framework",
@@ -46,20 +51,25 @@ MIDDLEWARE = [
 ]
 
 # Base de datos: SQLite en DEV
-DATABASES = {"default": {"ENGINE":"django.db.backends.sqlite3","NAME": BASE_DIR/"db.sqlite3"}}
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
 
 # Templates (asegurate de tener DIRS correcto)
-TEMPLATES = [{
-    "BACKEND":"django.template.backends.django.DjangoTemplates",
-    "DIRS":[BASE_DIR/"templates"],
-    "APP_DIRS":True,
-    "OPTIONS":{"context_processors":[
-        "django.template.context_processors.debug",
-        "django.template.context_processors.request",  # requerido por allauth
-        "django.contrib.auth.context_processors.auth",
-        "django.contrib.messages.context_processors.messages",
-    ]},
-}]
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",  # requerido por allauth
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "gallery.context_processors.random_photos",
+            ],
+        },
+    }
+]
 
 # Static y Media (DEV)
 STATIC_URL = "/static/"
@@ -71,3 +81,7 @@ LANGUAGE_CODE = "es-ar"
 TIME_ZONE = "America/Argentina/Salta"
 USE_I18N = True
 USE_TZ = True
+
+ROOT_URLCONF = "imagenes_random.urls"
+
+WSGI_APPLICATION = "imagenes_random.wsgi.application"
